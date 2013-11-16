@@ -1,0 +1,9 @@
+<%= javascript_include_tag '/js/cliente.js' %>
+
+<h1>Editing cliente</h1>
+
+<%= render 'form' , :locals => {:type => "Update"} %>
+
+
+<%= link_to 'Show', @cliente %> |
+<%= link_to 'Back', clientes_path %>

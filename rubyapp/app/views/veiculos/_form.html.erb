@@ -1,0 +1,59 @@
+<%= form_for(@veiculo) do |f| %>
+  <% if @veiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
+
+      <ul>
+      <% @veiculo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ <div class="field">
+    <%= f.label :cliente %><br />
+    <%= f.collection_select :cliente_id, @clientes, :id, :nome, :prompt => true, :selected => @cliente_id || '' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :placa %><br />
+    <%= f.text_field :placa %>
+  </div>
+  <div class="field">
+    <%= f.label :marca %><br />
+    <%= f.text_field :marca %>
+  </div>
+  <div class="field">
+    <%= f.label :modelo %><br />
+    <%= f.text_field :modelo %>
+  </div>
+  <div class="field">
+    <%= f.label :ano %><br />
+    <%= f.text_field :ano %>
+  </div>
+  <div class="field">
+    <%= f.label :pneu %><br />
+    <%= f.text_field :pneu %>
+  </div>
+  <div class="field">
+    <%= f.label :chassi %><br />
+    <%= f.text_field :chassi %>
+  </div>
+  <div class="field">
+    <%= f.label :renavam %><br />
+    <%= f.text_field :renavam %>
+  </div>
+  <div class="field">
+    <%= f.label :coeficiente %><br />
+    <%= f.text_field :coeficiente %>
+  </div>
+  <div class="field">
+    <%= f.label :redutor %><br />
+    <%= f.text_field :redutor %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

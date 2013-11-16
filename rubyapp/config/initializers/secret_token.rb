@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Rubyapp::Application.config.secret_token = '95101f02faae20866b511dd016635903c7fe8bd65f544bebbbee4595c93321e9ac3bf3869806a26878e256ce938702a42c46b9a4a78090519a17a989cf1c9daf'
+Rubyapp::Application.config.secret_token = '10bbfbb5cfe59a5107279583a24185b616093bd804befcb02a02e5d535b9b43237780db3aa330eb12fe2b4cd0b72f7220872b70723dbc21cd6727aa79042d562'

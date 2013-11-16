@@ -1,4 +1,15 @@
 Rubyapp::Application.routes.draw do
+  resources :veiculos
+
+
+  resources :clientes 
+
+  resources :cidades
+  
+  resources :estados
+    
+  match 'load_cidades', to: 'cidades#load_cidades', via: [:get]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

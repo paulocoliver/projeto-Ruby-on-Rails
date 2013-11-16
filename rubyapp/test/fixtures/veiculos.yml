@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  placa: MyString
+  marca: MyString
+  modelo: MyString
+  ano: MyString
+  pneu: MyString
+  chassi: MyString
+  renavam: MyString
+  coeficiente: 
+  redutor: MyString
+  cliente: 
+
+two:
+  placa: MyString
+  marca: MyString
+  modelo: MyString
+  ano: MyString
+  pneu: MyString
+  chassi: MyString
+  renavam: MyString
+  coeficiente: 
+  redutor: MyString
+  cliente: 
