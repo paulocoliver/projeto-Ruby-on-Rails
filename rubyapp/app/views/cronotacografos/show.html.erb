@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Marca:</b>
+  <%= @cronotacografo.marca %>
+</p>
+
+<p>
+  <b>Modelo:</b>
+  <%= @cronotacografo.modelo %>
+</p>
+
+<p>
+  <b>Num serie:</b>
+  <%= @cronotacografo.num_serie %>
+</p>
+
+<p>
+  <b>Constante k:</b>
+  <%= @cronotacografo.constante_k %>
+</p>
+
+<p>
+  <b>Km:</b>
+  <%= @cronotacografo.km %>
+</p>
+
+
+<%= link_to 'Edit', edit_cronotacografo_path(@cronotacografo) %> |
+<%= link_to 'Back', cronotacografos_path %>

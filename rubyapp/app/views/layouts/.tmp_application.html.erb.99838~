@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rubyapp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="header">
+	<div id="header-centro"></div>
+</div>
+
+
+<div id="menu">
+	<div id="menu-centro">
+		<a href="/estados">Estados</a>
+		<a href="/cidades">Cidades</a>
+		<a href="/funcionarios">Funcionários</a>
+		<a href="/cronotacografos">Cronotacógrafo</a>
+		<a href="/clientes">Clientes</a>
+		<a href="/veiculos">Veículos</a>
+	</div>
+</div>
+
+<div id="conteudo">
+	<div id="conteudo-centro">
+		<%= yield %>
+	</div>
+</div>
+
+<div id="footer">
+	<div id="footer-centro"></div>
+</div>
+
+</body>
+</html>

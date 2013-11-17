@@ -1,0 +1,81 @@
+<%= form_for(@ordem_servico) do |f| %>
+  <% if @ordem_servico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ordem_servico.errors.count, "error") %> prohibited this ordem_servico from being saved:</h2>
+
+      <ul>
+      <% @ordem_servico.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+	<%= f.label :cliente%><br />
+	<%= f.collection_select :cliente_id, Cliente.all, :id, :nome, :prompt => true, :selected => @ordem_servico.cliente_id || '' %>
+  </div> 
+  
+  <div class="field">
+	<%= f.label :veiculo%><br />
+	<select id="veiculo_id" name="ordem_servico[veiculo_id]" required="required">
+		<% if @veiculos %>
+			<% @veiculos.each do |veiculo| %>
+				<option value="<%= veiculo.id%>" <%= @ordem_servico.veiculo_id == veiculo.id ? selected="selected" : "" %> ><%= veiculo.marca + " " +veiculo.modelo%></option>
+			<% end %>
+		<% end %>
+	</select>
+  </div>
+  
+  <div class="field">
+    <%= f.label :cronotacografo %><br />
+    <%= f.collection_select :cronotacografo_id, Cronotacografo.all, :id, :num_serie, :prompt => true, :required => true , :selected => @ordem_servico.cronotacografo_id || ''%>
+  </div>
+  
+  <div class="field">
+	  <%= f.label :selo_plastico_colocado %><br />
+	  <select id="selo_plastico_colocado" name="ordem_servico[selo_plastico_colocado]" required="required">
+			<% @selo_plastico.each do |selo| %>
+				<option value="<%= selo.numero%>" <%= @ordem_servico.selo_plastico_colocado == selo.numero ? selected="selected" : "" %> ><%= selo.numero%></option>
+			<% end %>
+	  </select>
+  </div>
+  
+  <div class="field">
+  	<%= f.label :selo_plastico_retirado %><br />
+	  <select id="selo_plastico_retirado" name="ordem_servico[selo_plastico_retirado]" required="required">
+			<% @selo_plastico.each do |selo| %>
+				<option value="<%= selo.numero%>" <%= @ordem_servico.selo_plastico_retirado == selo.numero ? selected="selected" : "" %> ><%= selo.numero%></option>
+			<% end %>
+	  </select>
+  </div>
+  
+  <div class="field">
+	  <%= f.label :selo_adesivo_colocado %><br />
+	  <select id="selo_adesivo_colocado" name="ordem_servico[selo_adesivo_colocado]" required="required">
+			<% @selo_adesivo.each do |selo| %>
+				<option value="<%= selo.numero%>" <%= @ordem_servico.selo_adesivo_colocado == selo.numero ? selected="selected" : "" %> ><%= selo.numero%></option>
+			<% end %>
+	  </select>
+  </div>
+  
+  <div class="field">
+  	  <%= f.label :selo_adesivo_retirado %><br />
+	  <select id="selo_adesivo_retirado" name="ordem_servico[selo_adesivo_retirado]" required="required">
+			<% @selo_adesivo.each do |selo| %>
+				<option value="<%= selo.numero%>" <%= @ordem_servico.selo_adesivo_retirado == selo.numero ? selected="selected" : "" %> ><%= selo.numero%></option>
+			<% end %>
+	  </select>
+  </div>
+  <div class="field">
+    <%= f.label :data_servico %><br />
+    <%= f.date_select :data_servico %>
+  </div>
+  <div class="field">
+    <%= f.label :funcionario %><br />
+    <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, :prompt => true, :required => true , :selected => @ordem_servico.funcionario_id || ''%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

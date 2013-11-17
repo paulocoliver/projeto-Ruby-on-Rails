@@ -2,7 +2,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos
   # GET /veiculos.json
   def index
-    @veiculos = Veiculo.all
+    @veiculos = Veiculo.joins(:cliente).select("veiculos.*, clientes.nome").page(params[:page]).per(50).order('nome')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos/1
   # GET /veiculos/1.json
   def show
-    @veiculo = Veiculo.find(params[:id])
+    @veiculo = Veiculo.joins(:cliente).select("veiculos.*, clientes.nome").where( id: params[:id]).first
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,6 +36,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos/1/edit
   def edit
     @veiculo = Veiculo.find(params[:id])
+    @clientes = Cliente.select("clientes.*").order("nome")
   end
 
   # POST /veiculos
@@ -79,6 +80,15 @@ class VeiculosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to veiculos_url }
       format.json { head :no_content }
+    end
+  end
+  
+  # GET /load_veiculos?cliente_id=
+  def load_veiculos
+    @veiculos = Veiculo.select("veiculos.*").where(cliente_id: params[:cliente_id])
+  
+    respond_to do |format|
+       format.json { render json: @veiculos }
     end
   end
 end

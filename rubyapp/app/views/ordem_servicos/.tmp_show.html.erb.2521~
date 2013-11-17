@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @ordem_servico.cliente %>
+</p>
+
+<p>
+  <b>Veiculo:</b>
+  <%= @ordem_servico.veiculo %>
+</p>
+
+<p>
+  <b>Cronotacografo:</b>
+  <%= @ordem_servico.cronotacografo %>
+</p>
+
+<p>
+  <b>Data servico:</b>
+  <%= @ordem_servico.data_servico %>
+</p>
+
+<p>
+  <b>Funcionario:</b>
+  <%= @ordem_servico.funcionario %>
+</p>
+
+
+<%= link_to 'Edit', edit_ordem_servico_path(@ordem_servico) %> |
+<%= link_to 'Back', ordem_servicos_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  marca: MyString
+  modelo: MyString
+  num_serie: MyString
+  constante_k: MyString
+  km: MyString
+
+two:
+  marca: MyString
+  modelo: MyString
+  num_serie: MyString
+  constante_k: MyString
+  km: MyString

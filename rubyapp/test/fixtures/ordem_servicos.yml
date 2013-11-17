@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cliente: 
+  veiculo: 
+  cronotacografo: 
+  data_servico: 2013-11-16
+  funcionario: 
+
+two:
+  cliente: 
+  veiculo: 
+  cronotacografo: 
+  data_servico: 2013-11-16
+  funcionario: 

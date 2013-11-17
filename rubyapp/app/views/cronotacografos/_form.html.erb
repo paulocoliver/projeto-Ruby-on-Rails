@@ -1,0 +1,37 @@
+<%= form_for(@cronotacografo) do |f| %>
+  <% if @cronotacografo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cronotacografo.errors.count, "error") %> prohibited this cronotacografo from being saved:</h2>
+
+      <ul>
+      <% @cronotacografo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :marca %><br />
+    <%= f.text_field :marca %>
+  </div>
+  <div class="field">
+    <%= f.label :modelo %><br />
+    <%= f.text_field :modelo %>
+  </div>
+  <div class="field">
+    <%= f.label :num_serie %><br />
+    <%= f.text_field :num_serie %>
+  </div>
+  <div class="field">
+    <%= f.label :constante_k %><br />
+    <%= f.text_field :constante_k %>
+  </div>
+  <div class="field">
+    <%= f.label :km %><br />
+    <%= f.text_field :km %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

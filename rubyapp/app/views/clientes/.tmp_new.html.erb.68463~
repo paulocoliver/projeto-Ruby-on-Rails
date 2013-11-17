@@ -1,0 +1,7 @@
+<%= javascript_include_tag '/js/cliente.js' %>
+
+<h1>New cliente</h1>
+
+<%= render 'form' , :locals => {:type => "Create"}%>
+
+<%= link_to 'Back', clientes_path %>

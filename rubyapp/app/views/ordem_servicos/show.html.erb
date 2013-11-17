@@ -1,0 +1,165 @@
+<%= javascript_include_tag '/js/relatorio_ordem_servico.js' %>
+<p id="notice"><%= notice %></p>
+
+<form id="relatorio_ordem_servico">
+	
+	<style type="text/css">
+	<!--	
+		#relatorio_ordem_servico{
+			font-family:Arial;
+			font-size:14px;
+		}
+		#relatorio_ordem_servico{
+			width:737px;
+			margin:0 auto;
+		}
+		#relatorio_ordem_servico label,#relatorio_ordem_servico input, #relatorio_ordem_servico select {
+			display:inline-block;
+			vertical-align:middle;
+			margin: 0 0 10px 0;
+		}
+		#relatorio_ordem_servico label{
+			line-height:25px;
+		}
+		#relatorio_ordem_servico input{
+			height:28px;
+		}
+		#relatorio_ordem_servico select{
+			height:34px;
+			width: 150px;
+		}
+		#relatorio_ordem_servico h1, #relatorio_ordem_servico h2{
+			text-align: center;
+			background-color: #DBDBDB;
+			padding: 15px;
+		}
+		#relatorio_ordem_servico h1{
+			font-size: 23px;
+		}
+		#relatorio_ordem_servico h1{
+			font-size: 18px;
+		}
+		#relatorio_ordem_servico input[type="submit"]{
+			float:right;
+		}
+	-->	
+	</style>
+	<h1>Ordem de Serviço CRONOTACÓGRAFO- TCO Nº. <%= @ordem_servico.id %></h1>
+	
+	<div id="dados_oficina">
+		<label for="oficina">Nome da Oficina</label>
+		<input id="oficina" name="oficina" type="text" value="" required="true" style="width: 390px;"/>
+		
+		<label for="oficina_fone">Fone</label>
+		<input id="oficina_fone" name="oficina_fone" type="text" value="" required="true" style="width: 190px;"/>
+		
+		<label for="oficina_endereco">Endereco</label>
+		<input id="oficina_endereco" name="oficina_endereco" type="text" value="" required="true" style="width:263px"/>
+		
+		<label for="oficina_estado">Estado</label>
+	    <%= collection_select( :estado, :id, Estado.all, :id, :descricao, :prompt => true) %>
+	 
+		<label for="oficina_cidade">Cidade</label>
+		<select id="cidade" name="cidade" required="required"></select>
+	</div>
+
+	<div id="dados_veiculo">
+		
+		<h2>Identificação do veículo</h2> 
+		
+		<label for="cliente_nome">Cliente</label>
+		<input id="cliente_nome" name="cliente_nome" type="text" disabled="true" value="<%= @ordem_servico.cliente_nome %>" style="width: 380px;"/>
+		
+		<label for="cliente_documento">CPF/CNPJ</label>
+		<input id="cliente_documento" name="cliente_documento" type="text" disabled="true" value="<%= @ordem_servico.cliente_documento %>" style="width: 227px;" />
+		
+		<label for="cliente_uf">UF</label>
+		<input id="cliente_uf" name="cliente_uf" type="text" disabled="true" value="<%= @ordem_servico.cliente_uf %>" style="width: 120px;" />
+		
+		<label for="cliente_cidade">Cidade</label>
+		<input id="cliente_cidade" name="cliente_cidade" type="text" disabled="true" value="<%= @ordem_servico.cliente_cidade %>" style="width:242px;"/>
+		
+		<label for="cliente_bairro">Bairro</label>
+		<input id="cliente_bairro" name="cliente_bairro" type="text" disabled="true" value="<%= @ordem_servico.cliente_bairro %>" style="width:242px;" />
+		
+		<label for="cliente_endereco">Endereço</label>
+		<input id="cliente_endereco" name="cliente_endereco" type="text" disabled="true" value="<%= @ordem_servico.cliente_endereco %>" style="width: 476px;"/>
+		
+		<label for="cliente_cep">CEP</label>
+		<input id="cliente_cep" name="cliente_cep" type="text" disabled="true" value="<%= @ordem_servico.cliente_cep %>" style="width:152px;"/>
+		
+		<label for="cliente_email">Email</label>
+		<input id="cliente_email" name="cliente_email" type="text" disabled="true" value="<%= @ordem_servico.cliente_email %>" style="width: 499px;"/>
+		
+		<label for="cliente_fone">Fone</label>
+		<input id="cliente_fone" name="cliente_fone" type="text" disabled="true" value="<%= @ordem_servico.cliente_fone %>" />
+		
+		<label for="veiculo_placa">Placa</label>
+		<input id="veiculo_placa" name="veiculo_placa" type="text" disabled="true" value="<%= @ordem_servico.veiculo_placa%>" style="width: 137px;"/>
+		
+		<label for="veiculo_marca">Marca</label>
+		<input id="veiculo_marca" name="veiculo_marca" type="text" disabled="true" value="<%= @ordem_servico.veiculo_marca%>" style="width: 137px;"/>
+		
+		<label for="veiculo_modelo">Modelo</label>
+		<input id="veiculo_modelo" name="veiculo_modelo" type="text" disabled="true" value="<%= @ordem_servico.veiculo_modelo%>" style="width: 137px;"/>
+		
+		<label for="veiculo_ano">Ano</label>
+		<input id="veiculo_ano" name="veiculo_ano" type="text" disabled="true" value="<%= @ordem_servico.veiculo_ano%>" style="width: 137px;"/>
+		
+		<label for="veiculo_chassi">Chassi</label>
+		<input id="veiculo_chassi" name="veiculo_chassi" type="text" disabled="true" value="<%= @ordem_servico.veiculo_chassi%>" style="width: 130px;"/>
+		
+		<label for="veiculo_renavam">RENAVAM</label>
+		<input id="veiculo_renavam" name="veiculo_renavam" type="text" disabled="true" value="<%= @ordem_servico.veiculo_renavam%>" style="width: 130px;"/>
+		
+		<label for="veiculo_coeficiente">Coeficiênte</label>
+		<input id="veiculo_coeficiente" name="veiculo_coeficiente" type="text" disabled="true" value="<%= @ordem_servico.veiculo_coeficiente%>" style="width: 130px;"/>
+		
+		<label for="veiculo_redutor">Redutor</label>
+		<input id="veiculo_redutor" name="veiculo_redutor" type="text" disabled="true" value="<%= @ordem_servico.veiculo_redutor%>" style="width: 72px;"/>
+	</div>
+	
+	<div id="dados_cronotacografo">
+		<h2>Identificação do cronotacógrafo</h2>
+		
+		<label for="cronotacografo_marca">Marca</label>
+		<input id="cronotacografo_marca" name="cronotacografo_marca" type="text" disabled="true" value="<%= @ordem_servico.cronotacografo_marca %>" style="width: 100px;"/>
+		
+		<label for="cronotacografo_modelo">Modelo</label>
+		<input id="cronotacografo_modelo" name="cronotacografo_modelo" type="text" disabled="true" value="<%= @ordem_servico.cronotacografo_modelo %>" style="width: 100px;"/>
+		
+		<label for="cronotacografo_num_serie">Nº. Série</label>
+		<input id="cronotacografo_num_serie" name="cronotacografo_modelo" type="text" disabled="true" value="<%= @ordem_servico.cronotacografo_num_serie %>" style="width: 100px;"/>
+		
+		<label for="cronotacografo_constante_k">Constante K</label>
+		<input id="cronotacografo_constante_k" name="cronotacografo_constante_k" type="text" disabled="true" value="<%= @ordem_servico.cronotacografo_constante_k %>" style="width: 73px;"/>
+		
+		<label for="cronotacografo_km">KM</label>
+		<input id="cronotacografo_km" name="cronotacografo_km" type="text" disabled="true" value="<%= @ordem_servico.cronotacografo_km %>" style="width: 70px;"/>
+		
+		<label for="selo_plastico_colocado">Selo Plástico Colocado</label>
+		<input id="selo_plastico_colocado" name="selo_plastico_colocado" type="text" disabled="true" value="<%= @ordem_servico.selo_plastico_colocado %>" style="width: 218px;"/>
+		
+		<label for="selo_plastico_retirado">Selo Plástico Retirado</label>
+		<input id="selo_plastico_retirado" name="selo_plastico_retirado" type="text" disabled="true" value="<%= @ordem_servico.selo_plastico_retirado %>" style="width: 215px;"/>
+		
+		<label for="selo_adesivo_colocado">Selo Adesivo Colocado</label>
+		<input id="selo_adesivo_colocado" name="selo_adesivo_colocado" type="text" disabled="true" value="<%= @ordem_servico.selo_adesivo_colocado %>" style="width: 216px;"/>
+		
+		<label for="selo_adesivo_retirado">Selo Adesivo Retirado</label>
+		<input id="selo_adesivo_retirado" name="selo_adesivo_retirado" type="text" disabled="true" value="<%= @ordem_servico.selo_adesivo_retirado %>" style="width: 215px"/>
+		
+		<label for="data_servico">Data Serviço</label>
+		<input id="data_servico" name="data_servico" type="text" disabled="true" value="<%= @ordem_servico.data_servico %>" style="width: 115px;"/>
+		
+		<label for="num_ordem_servico">Nº. Ordem Serviço</label>
+		<input id="num_ordem_servico" name="num_ordem_servico" type="text" disabled="true" value="<%= @ordem_servico.id %>" style="width: 70px;"/>
+		
+		<label for="funcionario_nome">Responsável</label>
+		<input id="funcionario_nome" name="funcionario_nome" type="text" disabled="true" value="<%= @ordem_servico.funcionario_nome %>" style="width: 241px;"/>
+		
+		<div style="clear:both"></div>
+		<input type="submit" value="Imprimir" />
+		<div style="clear:both"></div>
+	</div>
+</form>

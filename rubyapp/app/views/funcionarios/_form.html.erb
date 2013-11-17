@@ -1,0 +1,29 @@
+<%= form_for(@funcionario) do |f| %>
+  <% if @funcionario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@funcionario.errors.count, "error") %> prohibited this funcionario from being saved:</h2>
+
+      <ul>
+      <% @funcionario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br />
+   	<select id="funcionario_tipo" name="funcionario[tipo]" required="required">
+		<% ['Administrador','Funcionario'].each do |tipo| %>
+			<option value="<%= tipo%>" <%= @funcionario.tipo == tipo ? selected="selected" : "" %> ><%= tipo%></option>
+		<% end %>
+	</select>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

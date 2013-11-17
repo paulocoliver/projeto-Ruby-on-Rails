@@ -11,3 +11,65 @@
  *= require_self
  *= require_tree .
  */
+*{
+	font-family:Arial;
+	font-size:14px;
+}
+img{
+	border:0;
+}
+body{
+	margin:0;
+}
+#header,#footer{
+	width:100%;
+	background: #cfe7fa; /* Old browsers */
+	background: -moz-linear-gradient(top,   #396F9B 0%,#6393c1 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cfe7fa), color-stop(100%,#6393c1)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,   #396F9B 0%,#6393c1 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,   #396F9B 0%,#6393c1 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,   #396F9B 0%,#6393c1 100%); /* IE10+ */
+	background: linear-gradient(to bottom,   #396F9B 0%,#6393c1 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfe7fa', endColorstr='#6393c1',GradientType=0 ); /* IE6-9 */
+}
+#header-centro,#footer-centro{
+	width:990px;
+	margin:0 auto;
+	min-height:80px;
+}
+#menu{
+	width:100%;
+	background-color:#001520;
+}
+#menu-centro{
+	width:990px;
+	margin:0 auto;
+}
+#menu-centro a{
+	padding:7px 10px;
+	display:inline-block;
+	text-decoration:none;
+	color:white;
+}
+#conteudo{
+	width:100%;
+}
+#conteudo-centro{
+	width:990px;
+	margin:0 auto;
+	min-height:600px;
+}
+table{
+	width:100%;
+	border-spacing:0;
+	border-collapse:collapse;
+	border:1px solid #696969;
+}
+table tr th{
+	color:white;
+	background-color:#555555;
+}
+table tr th, table tr td{
+	padding:5px;
+	border:1px solid #696969;
+}

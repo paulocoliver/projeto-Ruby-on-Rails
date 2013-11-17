@@ -1,0 +1,31 @@
+<h1>Listing cronotacografos</h1>
+
+<table>
+  <tr>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>Num serie</th>
+    <th>Constante k</th>
+    <th>Km</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cronotacografos.each do |cronotacografo| %>
+  <tr>
+    <td><%= cronotacografo.marca %></td>
+    <td><%= cronotacografo.modelo %></td>
+    <td><%= cronotacografo.num_serie %></td>
+    <td><%= cronotacografo.constante_k %></td>
+    <td><%= cronotacografo.km %></td>
+    <td><%= link_to 'Show', cronotacografo %></td>
+    <td><%= link_to 'Edit', edit_cronotacografo_path(cronotacografo) %></td>
+    <td><%= link_to 'Destroy', cronotacografo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cronotacografo', new_cronotacografo_path %>
